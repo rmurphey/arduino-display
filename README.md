@@ -1,6 +1,5 @@
 A simple server for displaying data from an Arduino. Send data like this:
 
-    ```javascript
     function sendData() {
       var opts = {
         host: 'localhost',
