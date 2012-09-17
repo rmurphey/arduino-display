@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>Arduino</title>
+</head>
+
+<body>
+  <div id="accel_x"></div>
+  <div id="accel_y"></div>
+  <div id="accel_z"></div>
+  <div id="temp"></div>
+  <div id="light"></div>
+  <div id="dist"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io.connect('http://localhost:3000');
+
+    socket.on('sensordata', function(data) {
+      console.log(data);
+    });
+  </script>
+
+</body>
+</html>
