@@ -5,6 +5,10 @@ var app = express();
 app.use(express.bodyParser());
 app.use(app.router);
 
+[ 'app', 'assets' ].forEach(function(dir) {
+  app.use('/' + dir, express.static(__dirname + '/' + dir));
+});
+
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');
 });

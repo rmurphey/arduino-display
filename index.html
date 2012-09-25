@@ -1,25 +1,28 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <title>Arduino</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Backbone Boilerplate</title>
+
+  <!-- Application root. -->
+  <base href="/">
+
+  <!-- Application styles. -->
+  <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
-  <div id="accel_x"></div>
-  <div id="accel_y"></div>
-  <div id="accel_z"></div>
-  <div id="temp"></div>
-  <div id="light"></div>
-  <div id="dist"></div>
+  <!-- Main container. -->
+  <div role="main" id="main">
+    <ul id="sensors"></ul>
+  </div>
 
+  <!-- Application source. -->
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io.connect('http://localhost:3000');
-
-    socket.on('sensordata', function(data) {
-      console.log(data);
-    });
-  </script>
+  <script data-main="app/config" src="/assets/js/libs/require.js"></script>
 
 </body>
 </html>
