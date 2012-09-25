@@ -23,7 +23,7 @@ require.config({
       exports: "Backbone"
     },
 
-    // "plugins/jquery.sparklines": [ "jquery" ],
+    "plugins/jquery.sparklines" : [ "jquery" ],
 
     // Backbone.LayoutManager depends on Backbone.
     "plugins/backbone.layoutmanager": [ "backbone" ]
