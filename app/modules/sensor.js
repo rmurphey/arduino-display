@@ -12,16 +12,11 @@ function(app) {
 
   // Default model.
   Sensor.Model = Backbone.Model.extend({
-    defaults : {
-      name : 'Unnamed sensor',
-      data : []
-    },
-
     add : function( dataPoint ) {
-      this.set(
-        'data',
-        [].prototype.push.apply( this.get( 'data' ), dataPoint )
-      );
+      var data = this.get( 'data' );
+      data.push(dataPoint);
+      this.set('data', data);
+      this.trigger('change');
     }
   });
 
@@ -35,7 +30,11 @@ function(app) {
 
     update : function() {
       var dataPoints = this.options.dataPoints || 10;
-      this.$el.sparkline( this.get( 'data' ).slice(0, dataPoints) );
+      var sparklineData = this.model.get('data').slice(0, dataPoints);
+      console.log(sparklineData);
+      this.$el.sparkline( sparklineData, {
+        valueSpots : { '0:9' : 'blue' }
+      } );
     },
 
     render : function() {

@@ -20,10 +20,11 @@ function($, _, Backbone) {
   // Localize or create a new JavaScript Template object.
   var JST = window.JST = window.JST || {};
 
+
   // Configure LayoutManager with Backbone Boilerplate defaults.
   Backbone.LayoutManager.configure({
     // Allow LayoutManager to augment Backbone.View.prototype.
-    manage: true,
+    // manage: true,
 
     paths: {
       layout: "app/templates/layouts/",

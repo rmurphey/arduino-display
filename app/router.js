@@ -33,8 +33,17 @@ define([
         }
       }
 
-      console.log('got here', Sensor);
+      var i = 0;
 
+      function next() {
+        handleData({ 'sensorA' : i });
+        i++;
+        if (i < 10) {
+          setTimeout(next, 200);
+        }
+      }
+
+      next();
     }
   });
 
