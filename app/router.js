@@ -36,9 +36,9 @@ define([
       var i = 0;
 
       function next() {
-        handleData({ 'sensorA' : i });
+        handleData({ 'sensorA' : Math.random() });
         i++;
-        if (i < 10) {
+        if (i < 100) {
           setTimeout(next, 200);
         }
       }

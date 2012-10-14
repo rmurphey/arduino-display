@@ -25,19 +25,25 @@ function(app) {
 
     initialize : function() {
       this.model.on( 'change', this.update, this );
-      this.update();
     },
 
     update : function() {
       var dataPoints = this.options.dataPoints || 10;
-      var sparklineData = this.model.get('data').slice(0, dataPoints);
-      console.log(sparklineData);
-      this.$el.sparkline( sparklineData, {
+      var sparklineData = this.model.get( 'data' );
+      var size = sparklineData.length;
+      var start = size - 10 > -1 ? size - 10 : 0;
+      var end = size;
+
+      sparklineData = sparklineData.slice( start, end );
+
+      this.$chart.sparkline( sparklineData, {
         valueSpots : { '0:9' : 'blue' }
       } );
     },
 
     render : function() {
+      this.$el.html( this.model.get('name') );
+      this.$chart = $('<span>').appendTo( this.$el );
       return this;
     }
   });

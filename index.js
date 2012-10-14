@@ -23,3 +23,4 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
 server.listen(3000);
+console.log('listening on localhost:3000');
