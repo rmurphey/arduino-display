@@ -23,6 +23,13 @@ function(app) {
   Sensor.Views.Sensor = Backbone.View.extend({
     tagName : 'li',
 
+    sparklineDefaults : {
+      valueSpots : { '0:9' : 'blue' },
+      width: '150px',
+      maxSpotColor: 'red',
+      minSpotColor: 'blue'
+    },
+
     initialize : function() {
       this.model.on( 'change', this.update, this );
     },
@@ -33,12 +40,14 @@ function(app) {
       var size = sparklineData.length;
       var start = size - 10 > -1 ? size - 10 : 0;
       var end = size;
+      var sparklineSettings = _.extend(
+        this.options.sparklineSettings || {},
+        this.sparklineDefaults
+      );
 
       sparklineData = sparklineData.slice( start, end );
 
-      this.$chart.sparkline( sparklineData, {
-        valueSpots : { '0:9' : 'blue' }
-      } );
+      this.$chart.sparkline( sparklineData, sparklineSettings );
     },
 
     render : function() {

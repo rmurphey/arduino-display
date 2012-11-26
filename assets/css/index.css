@@ -6,8 +6,26 @@
  *
  * Note: All stylesheets are relative to `assets/css`.
  *
- */ 
+ */
 
+body {
+  padding: 20px;
+}
 
+#sensors {
+  font-size: 200%;
+  padding: 0;
+  margin: 0;
+}
+
+#sensors li {
+  list-style: none;
+}
+
+#sensors li span {
+  padding-left: 20px;
+  display: inline-block;
+  width: 250px;
+}
 
 /* Put development-only CSS below this line. */

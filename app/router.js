@@ -39,7 +39,7 @@ define([
         handleData({ 'sensorA' : Math.random() });
         i++;
         if (i < 100) {
-          setTimeout(next, 200);
+          setTimeout(next, 1000);
         }
       }
 
